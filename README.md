@@ -9,15 +9,15 @@ Full-stack web application for managing an anime library. Users can create, dele
 - C#
 - .NET 10
 - ASP.NET Core
--Entity Framework Core
--SQLite
--FluentValidation
+- Entity Framework Core
+- SQLite
+- FluentValidation
 
 ### Frontend
 
--Angular
--TypeScript
--Reactive Forms
+- Angular
+- TypeScript
+- Reactive Forms
 
 ## Features
 
