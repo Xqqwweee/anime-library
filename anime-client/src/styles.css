@@ -1,0 +1,62 @@
+* {
+    font-family: 'Times New Roman', Times, serif;
+}
+html, body {
+    margin: 0;
+    text-align: center;
+    background-color: gainsboro;
+}
+main {
+    background-color: #d0c4df;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
+    gap: 25px;
+    padding: 30px;
+    justify-content: center;
+}
+.anime-card {
+    background-color: #dddddf;
+    width: 350px;
+    border-radius: 50px;
+    box-shadow: 2px 2px rgba(0, 0, 0, 20%);
+}
+.anime-card button {
+    background-color: #dddddf;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px;
+    width: 100px;
+    transition: all .1s ease-in;
+}
+.anime-card button:hover {
+    background-color: #dcabdf;
+    color: #dddddf;
+    cursor: pointer;
+}
+section {
+    background-color: #d0c4df;
+    padding: 30px;
+}
+input {
+    background-color: #dddddf;
+    border-radius: 15px;
+    padding: 5px;
+    font-size: 15px;
+    margin: 10px;
+}
+label {
+    font-size: 20px;
+}
+form button {
+    background-color: #dddddf;
+    border-radius: 20px;
+    width: 150px;
+    height: 35px;
+    font-size: large;
+    transition: all .1s ease-in;
+    margin: 10px;
+}
+form button:hover {
+    background-color: #dcabdf;
+    cursor: pointer;
+}

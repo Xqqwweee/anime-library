@@ -1,0 +1,40 @@
+<h1>Anime library</h1>
+<main>
+@for (anime of animes; track anime.id) {
+        <div class="anime-card">
+            <h2>{{anime.title}}</h2><br>
+            <h3>{{anime.episodes}} ep</h3><br>
+            <h3>⭐{{anime.rating}}</h3>
+            <button (click)="deleteAnime(anime.id)" type="button">Delete</button>
+            <button (click)="editAnime(anime)" type="button">Edit</button>
+        </div>
+}
+</main>
+<section>
+<form [formGroup]=form>
+    <label for="title">Title: </label>
+    <input type="text" formControlName="title" name="title"><br>
+    @if(form.controls.title.touched && form.controls.title.hasError('required')) {
+        <p>Title is required.</p>
+    }
+    <label for="episodes">Episodes: </label>
+    <input type="number" formControlName="episodes" name="episodes"><br>
+    @if(form.controls.episodes.touched && form.controls.episodes.hasError('min')) {
+        <p>Episodes must be 1 or greater.</p>
+    }
+    <label for="rating">Rating: </label>
+    <input type="number" formControlName="rating" name="rating"><br>
+    @if(form.controls.rating.touched && form.controls.rating.hasError('min')) {
+        <p>Rating must be 1 or greater.</p>
+    }
+    @if(form.controls.rating.touched && form.controls.rating.hasError('max')) {
+        <p>Rating must be 10 or less.</p>
+    }
+    @if(editingAnimeId !== 0) {
+        <button (click)="updateAnime()" type="button">Update</button>
+    }
+    @else if (editingAnimeId === 0) {
+        <button (click)="addAnime()" type="button">Add</button>
+    }
+</form>
+</section>

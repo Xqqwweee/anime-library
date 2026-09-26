@@ -1,0 +1,21 @@
+# .NET
+**/bin/
+**/obj/
+
+# Angular / Node
+**/node_modules/
+**/dist/
+
+# Sqlite Database
+**/*.db
+
+# Visual studio / VS code
+.vs/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Visual studio user files
+**/*.csproj.user
