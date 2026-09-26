@@ -1,12 +1,14 @@
 * {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: sans-serif;
 }
 html, body {
+    min-height: 100%;
     margin: 0;
     text-align: center;
     background-color: gainsboro;
 }
 main {
+    box-sizing: border-box;
     background-color: #d0c4df;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
@@ -17,7 +19,7 @@ main {
 .anime-card {
     background-color: #dddddf;
     width: 350px;
-    border-radius: 50px;
+    border-radius: 25px;
     box-shadow: 2px 2px rgba(0, 0, 0, 20%);
 }
 .anime-card button {
@@ -27,6 +29,7 @@ main {
     margin: 10px;
     width: 100px;
     transition: all .1s ease-in;
+    border: none;
 }
 .anime-card button:hover {
     background-color: #dcabdf;
@@ -40,9 +43,12 @@ section {
 input {
     background-color: #dddddf;
     border-radius: 15px;
-    padding: 5px;
+    padding: 8px 12px;
     font-size: 15px;
-    margin: 10px;
+    margin: 0;
+    border: none;
+    width: 100%;
+    box-sizing: border-border;
 }
 label {
     font-size: 20px;
@@ -54,9 +60,36 @@ form button {
     height: 35px;
     font-size: large;
     transition: all .1s ease-in;
-    margin: 10px;
+    margin-top: 10px;
+    border: none;
+    grid-column: span 2;
+    justify-self: center;
 }
 form button:hover {
     background-color: #dcabdf;
     cursor: pointer;
+}
+form {
+    display: grid;
+    grid-template-columns: 100px 220px;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    max-width: 400px;
+    margin: 20px auto;
+}
+label {
+    font-size: 20px;
+    text-align: right;
+}
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.error-msg {
+    color: #d9534f;
+    font-size: 12px;
+    margin: 4px 0 0 5px;
+    text-align: left;
 }

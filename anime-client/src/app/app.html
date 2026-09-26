@@ -11,30 +11,39 @@
 }
 </main>
 <section>
-<form [formGroup]=form>
-    <label for="title">Title: </label>
-    <input type="text" formControlName="title" name="title"><br>
+<form [formGroup]="form">
+  <label for="title">Title:</label>
+  <div class="input-wrapper">
+    <input id="title" type="text" formControlName="title" name="title">
     @if(form.controls.title.touched && form.controls.title.hasError('required')) {
-        <p>Title is required.</p>
+      <p class="error-msg">Title is required.</p>
     }
-    <label for="episodes">Episodes: </label>
-    <input type="number" formControlName="episodes" name="episodes"><br>
+  </div>
+
+  <label for="episodes">Episodes:</label>
+  <div class="input-wrapper">
+    <input id="episodes" type="number" formControlName="episodes" name="episodes">
     @if(form.controls.episodes.touched && form.controls.episodes.hasError('min')) {
-        <p>Episodes must be 1 or greater.</p>
+      <p class="error-msg">Episodes must be 1 or greater.</p>
     }
-    <label for="rating">Rating: </label>
-    <input type="number" formControlName="rating" name="rating"><br>
+  </div>
+
+  <label for="rating">Rating:</label>
+  <div class="input-wrapper">
+    <input id="rating" type="number" formControlName="rating" name="rating">
     @if(form.controls.rating.touched && form.controls.rating.hasError('min')) {
-        <p>Rating must be 1 or greater.</p>
+      <p class="error-msg">Rating must be 1 or greater.</p>
     }
     @if(form.controls.rating.touched && form.controls.rating.hasError('max')) {
-        <p>Rating must be 10 or less.</p>
+      <p class="error-msg">Rating must be 10 or less.</p>
     }
-    @if(editingAnimeId !== 0) {
-        <button (click)="updateAnime()" type="button">Update</button>
-    }
-    @else if (editingAnimeId === 0) {
-        <button (click)="addAnime()" type="button">Add</button>
-    }
+  </div>
+
+  @if(editingAnimeId !== 0) {
+    <button (click)="updateAnime()" type="button">Update</button>
+  }
+  @else if (editingAnimeId === 0) {
+    <button (click)="addAnime()" type="button">Add</button>
+  }
 </form>
 </section>
