@@ -2,6 +2,10 @@
 
 Full-stack web application for managing an anime library. Users can create, delete, or edit anime entries.
 
+## Preview
+
+![Anime Library](preview.png)
+
 ## Tech Stack
 
 ### Backend
