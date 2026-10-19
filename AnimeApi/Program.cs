@@ -38,11 +38,24 @@ if (app.Environment.IsDevelopment())
     app.MapScalarApiReference();
 }
 
-app.MapGet("/anime", async (AnimeDbContext db) =>
+app.MapGet("/anime", async (AnimeDbContext db, string? search, string? sort) =>
 {
-    List<AnimeResponseDto> dtos = await db.Animes
-        .Select(x => AnimeResponseDto.ToDto(x))
-        .ToListAsync();
+    IQueryable<Anime> query = db.Animes;
+    if(!string.IsNullOrWhiteSpace(search))
+    {
+        query = query.Where(x => x.Title.Contains(search));
+    }
+    if(sort == "asc")
+    {
+        query = query.OrderBy(x => x.Title);
+    }
+    else if(sort == "desc")
+    {
+        query = query.OrderByDescending(x => x.Title);
+    }
+    List<AnimeResponseDto> dtos = await query
+    .Select(x => AnimeResponseDto.ToDto(x))
+    .ToListAsync();
 
     return Results.Ok(dtos);
 });
