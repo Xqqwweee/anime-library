@@ -32,14 +32,6 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
-{
-    var db = scope.ServiceProvider
-        .GetRequiredService<AnimeDbContext>();
-
-    await db.Database.CanConnectAsync();
-}
-
 app.UseCors("Angular");
 
 if (app.Environment.IsDevelopment())
