@@ -9,7 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AnimeDbContext>(options =>
 {
-    options.UseSqlite("Data Source=AnimeDb.db");
+    options.UseNpgsql(
+            builder.Configuration.GetConnectionString("AnimeDatabase")
+        );
 });
 
 builder.Services.AddScoped<CreateAnimeDtoValidator>();
@@ -29,6 +31,14 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider
+        .GetRequiredService<AnimeDbContext>();
+
+    await db.Database.CanConnectAsync();
+}
 
 app.UseCors("Angular");
 
